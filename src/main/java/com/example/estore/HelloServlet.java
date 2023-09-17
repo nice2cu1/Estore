@@ -7,31 +7,26 @@ import jakarta.servlet.ServletException;
 import jakarta.servlet.http.*;
 import jakarta.servlet.annotation.*;
 
-@WebServlet(name = "login", value = "/login")
+//@WebServlet(name = "login", value = "/login")
 public class HelloServlet extends HttpServlet {
-    private String message;
 
     public void init() {
-        message = "Hello World!";
     }
 
-    public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
-        response.setContentType("text/html");
-
-        // Hello
-        PrintWriter out = response.getWriter();
-        out.println("<html><body>");
-        out.println("<h1>" + message + "</h1>");
-        out.println("</body></html>");
-
-    }
+//    public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
+//        response.setContentType("text/html");
+//
+//
+//    }
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         System.out.println("doPost");
         String account = req.getParameter("account");
         String password = req.getParameter("password");
-        if(!account.isEmpty() && !password.isEmpty()){
+        System.out.println("账号：" + account);
+        System.out.println("密码：" + password);
+        if (!account.isEmpty() && !password.isEmpty()) {
 
             req.setAttribute("account", account);
             req.setAttribute("password", password);
@@ -39,6 +34,13 @@ public class HelloServlet extends HttpServlet {
             RequestDispatcher dispatcher = req.getRequestDispatcher("./index2.jsp");
             dispatcher.include(req, resp);
 
+        } else {
+            resp.setContentType("text/html");
+
+            PrintWriter out = resp.getWriter();
+            out.println("<html><body>");
+            out.println("<h1>不要提交空数据！</h1>");
+            out.println("</body></html>");
         }
     }
 
