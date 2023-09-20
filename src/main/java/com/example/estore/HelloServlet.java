@@ -5,9 +5,8 @@ import java.io.*;
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.*;
-import jakarta.servlet.annotation.*;
 
-//@WebServlet(name = "login", value = "/login")
+//@WebSe    rvlet(name = "login", value = "/login")
 public class HelloServlet extends HttpServlet {
 
     public void init() {

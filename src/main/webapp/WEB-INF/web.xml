@@ -11,4 +11,16 @@
         <servlet-name>myServlet</servlet-name>
         <url-pattern>/test</url-pattern>
     </servlet-mapping>
+    <servlet>
+        <servlet-name>ServletDemo3</servlet-name>
+        <servlet-class>com.example.estore.ServletDemo3</servlet-class>
+        <init-param>
+            <param-name>test</param-name>
+            <param-value>getServletConfig test</param-value>
+        </init-param>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ServletDemo3</servlet-name>
+        <url-pattern>/ServletDemo3</url-pattern>
+    </servlet-mapping>
 </web-app>
